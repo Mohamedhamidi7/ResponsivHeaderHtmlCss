@@ -1,0 +1,128 @@
+:root{
+    --color-1:rgb(234, 234, 234);
+    --text-color:rgba(10, 10, 10,1);
+    --accent-color:rgb(227, 27, 27);
+    --gray-color:rgb(51, 51, 51);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+    font-family: sans-serif;
+}
+body{
+    background-color: var(--gray-color);
+}
+/*HEADER STYLING*/
+header{
+    background-color: var(--color-1);
+    min-height: 16vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -30px 100px var(--text-color);
+}
+nav{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-logo{
+    height: 100%;
+}
+#boolean-header{
+    display: none;
+}
+.dropBoxIcone{
+    display: none;
+}
+.headerSvg{
+    fill: var(--accent-color);
+}
+.linksContainer{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    margin-inline: 15px;
+    display: flex;
+    align-items: center;
+    transition: all 0.75s;
+    position: relative;
+}
+
+.link:hover{
+    color: rgb(80, 80, 80);
+}
+.buttons {
+    color:var(--color-1);
+    height: 50px;
+    width: 180px;
+    justify-content: center;
+    border-radius: 30px;
+}
+.btn1 {
+    background-color: var(--accent-color);
+    transition: all 0.75s;
+}
+.btn1:hover {
+    background-color: var(--gray-color);
+}
+.btn2 {
+    background-color: var(--gray-color);
+}
+.overlay{
+    display: none;
+}
+@media screen and (max-width: 1080px) {
+    /*HEADER MEDIAQUERY*/
+    
+    .linksContainer{
+        background-color: var(--color-1);
+        width: 80vw;
+        box-shadow: -5px 0px 12px rgba(0, 0, 0, 0.355);
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        transition: all 0.75s;
+        
+    }
+    .linksContainer a{
+        padding: 20px;
+    }
+    .buttons{
+        margin-block: 10px;
+        width: 60%;
+    }
+    .dropBoxIcone{
+        display: block;
+    }
+    .forClose{
+        position: absolute;
+        top: 12px;
+        left: 12px
+    }
+    #boolean-header:checked ~ .linksContainer{
+        right:0;
+    }
+    
+    #boolean-header:checked ~ .overlay{
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        height: 100vh;
+        width: 100vw;
+    }
+}
